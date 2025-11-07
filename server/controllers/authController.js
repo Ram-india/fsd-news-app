@@ -48,7 +48,19 @@ const login = async (req,res) => {
     }
 
 };
+
+//get profile
+const getProfile = (req,res) => {
+    try{
+        const user = req.user;
+        res.json({user});
+    }catch(error){
+        res.status(500).json({message:"Failed to fetch profile", error:error.meassage})
+    }
+
+}
 module.exports = {
     signUp,
-    login
+    login,
+    getProfile
 };
